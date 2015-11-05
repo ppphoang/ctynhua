@@ -1,0 +1,17 @@
+cpanel.hostinger.vn
+email: shareMT90@gmail.com
+pwd: Hoang123
+Hostname FTP	ftp.sharingmt.16mb.com 
+user FTP	u731216008
+pwd FTP		Hoang123
+############################################
+MySQL database	MySQL User	MySQL Host	
+u731216008_smt 	u731216008_smt 	mysql.hostinger.vn 
+############################################
+website url:	http://sharingmt.16mb.com
+ip:		31.170.165.21
+server:		server18.hostinger.vn
+webmail:	http://webmail.hostinger.vn
+Host POP3/IMAP	mx1.hostinger.vn
+Port POP3	110
+SMTP Host	mx1.hostinger.vn
