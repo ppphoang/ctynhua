@@ -11,6 +11,10 @@
  * @link    http://my.studiopress.com/themes/genesis/
  */
 
+//echo '<pre>';
+//echo '<script>alert("pagearchive");</script>';
+//echo '<pre>';
+
 //* Template Name: Archive
 
 //* Remove standard post content output
@@ -56,3 +60,4 @@ function genesis_page_archive_content() { ?>
 }
 
 genesis();
+

@@ -12,4 +12,10 @@
  */
 
 //* Initialize Genesis
+$greet = "hello world";
+
+echo apply_filters('hoangphanhome', $greet);
+
 genesis();
+
+//echo '<script>alert("index");</script>';

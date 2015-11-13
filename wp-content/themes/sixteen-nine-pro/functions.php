@@ -156,6 +156,10 @@ add_action( 'genesis_header', 'genesis_footer_markup_open', 11 );
 add_action( 'genesis_header', 'genesis_do_footer', 12 );
 add_action( 'genesis_header', 'genesis_footer_markup_close', 13 );
 
+function hoang_head(){
+    echo "<link rel=\"author\" name";
+}
+
 //* Customize the footer
 add_filter( 'genesis_footer_output', 'sixteen_nine_custom_footer' );
 function sixteen_nine_custom_footer( $output ) {
@@ -171,3 +175,13 @@ genesis_register_sidebar( array(
 	'name'        => __( 'After Entry', 'sixteen-nine' ),
 	'description' => __( 'This is the widget that appears after the entry on single posts.', 'sixteen-nine' ),
 ) );
+
+
+function hiengreet($greet){
+    $find = "hello";
+    $replacement = "good night";
+    $greet = str_replace($find,$replacement,$greet);
+    return $greet;
+}
+add_filter('hoangphanhome','hiengreet');
+
