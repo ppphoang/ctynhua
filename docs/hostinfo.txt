@@ -15,3 +15,16 @@ webmail:	http://webmail.hostinger.vn
 Host POP3/IMAP	mx1.hostinger.vn
 Port POP3	110
 SMTP Host	mx1.hostinger.vn
+
+
+################################
+############# free domain
+################################
+http://www.registry.cu.cc 
+login
+phanvuhoang
+Hoang123 
+dieter.cu.cc inactive
+
+dieter-king.tk ~~~
+login with facebook acc
