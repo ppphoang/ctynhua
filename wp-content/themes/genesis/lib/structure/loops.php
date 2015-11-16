@@ -25,8 +25,9 @@ add_action( 'genesis_loop', 'genesis_do_loop' );
 function genesis_do_loop() {
 
 	if ( is_page_template( 'page_blog.php' ) ) {
-		$include = genesis_get_option( 'blog_cat' );
-		$exclude = genesis_get_option( 'blog_cat_exclude' ) ? explode( ',', str_replace( ' ', '', genesis_get_option( 'blog_cat_exclude' ) ) ) : '';
+		$include = genesis_get_option( 'blog_cat' ); //include: gồm có
+		//exclude: loại trừ
+        $exclude = genesis_get_option( 'blog_cat_exclude' ) ? explode( ',', str_replace( ' ', '', genesis_get_option( 'blog_cat_exclude' ) ) ) : '';
 		$paged   = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
 		//* Easter Egg

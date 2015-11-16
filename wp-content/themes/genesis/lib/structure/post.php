@@ -198,9 +198,14 @@ function genesis_do_post_title() {
 
 	//* Wrap in H1 on singular pages
 	$wrap = is_singular() ? 'h1' : 'h2';
+    //$wrap = is_singular() ? 'h4' : 'h4';
+
+    //echo '<script>alert("123")</script>';
+    //echo $wrap;exit;
 
 	//* Also, if HTML5 with semantic headings, wrap in H1
 	$wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h1' : $wrap;
+    //$wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h4' : $wrap;
 
 	//* Build the output
 	$output = genesis_markup( array(

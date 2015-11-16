@@ -6,7 +6,7 @@
  * @package Sixteen Nine Pro
  * @subpackage Customizations
  */
-
+echo '<script>alert("landing");</script>';
 /*
 Template Name: Landing
 */

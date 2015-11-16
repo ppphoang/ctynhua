@@ -2,7 +2,7 @@
 //* Start the engine
 include_once( get_template_directory() . '/lib/init.php' );
 
-//* Set Localization (do not remove)
+//* Set Localization (do not remove) //sự định vị
 load_child_theme_textdomain( 'sixteen-nine', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/languages', 'sixteen-nine' ) );
 
 //* Child theme (do not remove)
@@ -10,7 +10,7 @@ define( 'CHILD_THEME_NAME', __( 'Sixteen Nine Pro Theme', 'sixteen-nine' ) );
 define( 'CHILD_THEME_URL', 'http://my.studiopress.com/themes/sixteen-nine/' );
 define( 'CHILD_THEME_VERSION', '1.0.1' );
 
-//* Add HTML5 markup structure
+//* Add HTML5 markup structure /markup:đánh dấu
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
 //* Add viewport meta tag for mobile browsers
@@ -26,6 +26,9 @@ function sixteen_nine_google_fonts() {
 }
 
 //* Enqueue Backstretch script and prepare images for loading
+/*Backstretch is a jQuery plugin that allows you to add a dynamically-resized background
+image to any page. The image will stretch to fit the page, and will automatically resize
+as the window size changes.*/
 add_action( 'wp_enqueue_scripts', 'sixteen_nine_enqueue_scripts' );
 function sixteen_nine_enqueue_scripts() {
 

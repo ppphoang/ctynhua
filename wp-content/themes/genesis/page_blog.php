@@ -14,5 +14,5 @@
 //* Template Name: Blog
 
 //* The blog page loop logic is located in lib/structure/loops.php
-//echo '<script>alert("index");</script>';
+echo '<script>alert("page_blog");</script>';
 genesis();
