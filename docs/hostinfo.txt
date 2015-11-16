@@ -28,3 +28,10 @@ dieter.cu.cc inactive
 
 dieter-king.tk ~~~
 login with facebook acc
+
+##########################
+######### ftp
+##########################
+ftp.dieter-king.tk 
+u373857576
+Hoang123
