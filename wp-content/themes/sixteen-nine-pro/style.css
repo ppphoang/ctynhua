@@ -74,7 +74,7 @@ HTML5 Reset
 	normalize.css v2.1.2 | MIT License | git.io/normalize
 --------------------------------------------- */
 
-article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap; line-height: 1}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family: Menlo,Monaco,"Courier New",monospace;font-size:1em}pre{background-color:#393939;border-radius:4px;display:block;font-size:0.8rem;line-height:1.2;margin-top:0;overflow:scroll;padding:1rem;white-space:pre; word-break: break-all;word-wrap: normal;}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
 
 /* Box Sizing
 --------------------------------------------- */
@@ -141,6 +141,7 @@ body {
     /*font-family: "Open Sans", sans-serif;*/
     /*font: 400 13px/18px "Open Sans",arial,sans-serif;*/
 	font-size: 16px;
+    /*font-size: medium;*/
 	font-weight: 300;
 	/*line-height: 1.625;*/
 }
@@ -180,8 +181,10 @@ a:hover {
 }
 
 p {
-	margin: 0 0 24px;
-	padding: 0;
+	/*margin: 0 0 24px;
+	padding: 0;*/
+    margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 strong {
@@ -214,9 +217,19 @@ blockquote::before {
 }
 
 .entry-content code {
-	background-color: #ffffff;
-	color: #000;
+	/*background-color: #ffffff;
+	color: #000;*/
+    background-color: #393939;
+    color: #ffffff;
+}
 
+.entry-content p code {
+    background-color: #dcdede;
+    border: 1px solid #e3edf3;
+    border-radius: 4px;
+    color: inherit;
+    padding: 2px 4px;
+    font-size: 85%;
 }
 
 cite {
@@ -673,10 +686,12 @@ img.alignright,
 .entry-title,
 .widgettitle {
 	/*font-family: 'Roboto Slab', serif;*/
-    font-family: georgia, times, serif;
-    /*font: "Open Sans",arial,sans-serif;*/
+    /*font-family: georgia, times, serif;*/
     /*font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;*/
+    font: "Open Sans",arial,sans-serif;
 	font-weight: 300;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
 
 .entry-title {
@@ -685,6 +700,11 @@ img.alignright,
 	line-height: 1.2;
 	text-align: center;
 }
+
+/*h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}*/
 
 .entry-title a {
 	text-decoration: none;
@@ -850,8 +870,10 @@ Site Header
 }
 
 .site-title {
-	font-family: 'Roboto Condensed', sans-serif;
-	font-size: 24px;
+	/*font-family: 'Roboto Condensed', sans-serif;*/
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	/*font-size: 24px;*/
+    font-size: 28px;
 	font-weight: 400;
 	letter-spacing: 1px;
 	line-height: 1;
@@ -868,7 +890,8 @@ Site Header
 .site-description {
 	color: #999;
 	font-family: 'Playfair Display', serif;
-	font-size: 14px;
+    /*font-family: "Open Sans", Helvetica, Arial, sans-serif;*/
+	font-size: 16px;
 	font-style: italic;
 	font-weight: 300;
 	margin-bottom: 40px;
@@ -910,7 +933,8 @@ Site Navigation
 .genesis-nav-menu {
 	border-top: 1px solid #333;
 	clear: both;
-	font-family: 'Roboto Condensed', sans-serif;
+	/*font-family: 'Roboto Condensed', sans-serif;*/
+    font-family: georgia, times, serif;
 	font-size: 16px;
 	font-weight: 300;
 	letter-spacing: 1px;
@@ -1050,10 +1074,11 @@ Content Area
 .entry-meta {
 	clear: both;
 	color: #666;
-	font-family: 'Roboto Condensed', sans-serif;
+	/*font-family: 'Roboto Condensed', sans-serif;*/
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	letter-spacing: 1px;
-	text-transform: uppercase;
+	text-transform: lowercase;
 	margin-bottom: 40px;
 }
 
