@@ -28,8 +28,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/sixteen-nine-pro/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.762226" vertical-offset="2098" max-vertical-offset="24939">
-              <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.762226" vertical-offset="1996" max-vertical-offset="24633">
+              <caret line="144" column="2" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -571,8 +571,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/sixteen-nine-pro/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.762226" vertical-offset="2098" max-vertical-offset="24939">
-          <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.762226" vertical-offset="1996" max-vertical-offset="24633">
+          <caret line="144" column="2" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
           <folding />
         </state>
       </provider>
