@@ -730,10 +730,21 @@ p.subscribe-to-comments {
 	width: 33%;
 }
 
+.product {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    padding: 0 30px 30px;
+    width: 33%;
+}
+
 .single-portfolio #content {
 	text-align: center;
 }
 
+.single-product #content {
+    text-align: center;
+}
 
 /* Headlines
 ------------------------------------------------------------ */
@@ -769,6 +780,7 @@ h2 a:hover {
 
 .executive-home .home-middle h2 a,
 .post-type-archive-portfolio h2 a,
+.product h2 a,
 .taxonomy-description h1,
 .widget-area h4 {
 	font-size: 16px;
@@ -2019,6 +2031,10 @@ div.gform_wrapper .gform_footer {
 		width: 900px;
 	}
 
+    .post-type-archive-product.full-width-content #content {
+        width: 900px;
+    }
+
 	.post-info .date-info {
 		margin: 0 0 25px -40px;
 		padding: 20px 20px 20px 40px;
@@ -2049,6 +2065,7 @@ div.gform_wrapper .gform_footer {
 	.menu-primary,
 	.menu-secondary,
 	.post-type-archive-portfolio.full-width-content #content,
+    .post-type-archive-product.full-width-content #content
 	.sidebar,
 	.sidebar-content #content,
 	#content-sidebar-wrap,
@@ -2097,6 +2114,7 @@ div.gform_wrapper .gform_footer {
 	.footer-widgets-2,
 	.footer-widgets-3,
 	.post-type-archive-portfolio.full-width-content #content,
+    .post-type-archive-product.full-width-content #content,
 	#content,
 	#footer-widgets .wrap,
 	#title a,
@@ -2201,6 +2219,7 @@ div.gform_wrapper .gform_footer {
 	}
 
 	.post-type-archive-portfolio .portfolio,
+
 	.home-middle .widget,
 	.home-top .widget {
 		text-align: center;
@@ -2224,6 +2243,9 @@ div.gform_wrapper .gform_footer {
 	.post-type-archive-portfolio .portfolio {
 		padding: 0 0 30px;
 	}
+    .type-product .product {
+        padding: 0 0 30px;
+    }
 
 	.post-info .date-info {
 		margin: 0 0 25px;
@@ -2289,3 +2311,26 @@ button, input, select, textarea {
     margin-bottom: 10px;
     font-weight: bold;
 }
+
+/*.product {
+    box-sizing: border-box;
+    float: left;
+    padding: 0 30px 30px;
+    width: 33%;
+}*/
+
+/*.type-product_post_type .entry-title{
+    clear: both;
+    font-size: 42px;
+    margin: 0 0 20px;
+    color: #333;
+    font-family: "Open Sans",sans-serif;
+    font-weight: bold;
+    line-height: 1.25;
+}
+
+.product h2 a, .taxonomy-description h1, .widget-area h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+}*/
+

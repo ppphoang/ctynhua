@@ -153,6 +153,56 @@ function executive_portfolio_post_type() {
 		)
 	);
 }
+//require_once( get_stylesheet_directory_uri() . '/product-post-type.php');
+
+
+// Register Custom Post Type
+function product_post_type() {
+
+    $labels = array(
+        'name'                  => _x( 'Products', 'Post Type General Name', 'executive' ),
+        'singular_name'         => _x( 'Product', 'Post Type Singular Name', 'executive' ),
+        'menu_name'             => __( 'Sản phẩm', 'executive' ),
+        'name_admin_bar'        => __( 'Sản phẩm', 'executive' ),
+        'parent_item_colon'     => __( 'Sản phẩm cha:', 'executive' ),
+        'all_items'             => __( 'Tất cả các sản phẩm', 'executive' ),
+        'add_new_item'          => __( 'Thêm mới sản phẩm', 'executive' ),
+        'add_new'               => __( 'Thêm sản phẩm', 'executive' ),
+        'new_item'              => __( 'Sản phẩm mới', 'executive' ),
+        'edit_item'             => __( 'Sửa sản phẩm', 'executive' ),
+        'update_item'           => __( 'Cập nhật sản phẩm', 'executive' ),
+        'view_item'             => __( 'Xem sản phẩm', 'executive' ),
+        'search_items'          => __( 'Tìm kiếm sản phẩm', 'executive' ),
+        'not_found'             => __( 'Không tìm thấy', 'executive' ),
+        'not_found_in_trash'    => __( 'Không thấy trong thùng rác', 'executive' ),
+        'items_list'            => __( 'Danh sách sản phẩm', 'executive' ),
+        'items_list_navigation' => __( 'Chuyển hướng danh mục sản phẩm', 'executive' ),
+        'filter_items_list'     => __( 'Lọc danh sách sản phẩm', 'executive' ),
+    );
+    $args = array(
+        'label'                 => __( 'Product', 'executive' ),
+        'description'           => __( 'Sản phẩm nhựa', 'executive' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', ),
+        'taxonomies'            => array( 'category', 'post_tag' ),
+        'hierarchical'          => true,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+        'rewrite' => array( 'slug' => 'product' ),
+    );
+    //register_post_type( 'product_post_type', $args );
+    register_post_type( 'product', $args );
+}
+add_action( 'init', 'product_post_type' );
 
 /** Change the number of portfolio items to be displayed (props Bill Erickson) */
 add_action( 'pre_get_posts', 'executive_portfolio_items' );
