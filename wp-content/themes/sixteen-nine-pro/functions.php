@@ -187,6 +187,11 @@ function hiengreet($greet){
     return $greet;
 }
 add_filter('hoangphanhome','hiengreet');
-
+add_action( 'wp_head', 'wpse_43672_wp_head' );
+function wpse_43672_wp_head(){
+    ?>
+    <meta name="p:domain_verify" content="509ceb236087267c306ed078f2e493b2"/>
+<?php
+}
 
 
