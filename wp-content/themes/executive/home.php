@@ -40,11 +40,15 @@ function executive_home_genesis_meta() {
 
 function executive_home_sections() {
 
-	if ( is_active_sidebar( 'home-slider' ) || is_active_sidebar( 'home-top' ) || is_active_sidebar( 'home-cta' ) || is_active_sidebar( 'home-middle' ) ) {
+	if ( is_active_sidebar('sidebar-about')|| is_active_sidebar( 'home-slider' ) || is_active_sidebar( 'home-top' ) || is_active_sidebar( 'home-cta' ) || is_active_sidebar( 'home-middle' ) ) {
 
 		genesis_widget_area( 'home-slider', array(
 			'before' => '<div class="home-slider widget-area">',
 		) );
+
+        genesis_widget_area('sidebar-about', array(
+            'before'    => '<div class="home-about widget-area">',
+        ));
 
 		genesis_widget_area( 'home-top', array(
 			'before' => '<div class="home-top widget-area">',

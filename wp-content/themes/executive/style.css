@@ -2334,3 +2334,134 @@ button, input, select, textarea {
     text-transform: uppercase;
 }*/
 
+/* Welcome Text
+------------------------------------------------------------ */
+
+.company-text {
+    border-bottom: double #ddd;
+    border-top: double #ddd;
+    font-family: 'Lora', serif;
+    font-size: 30px;
+    line-height: 1.0;
+    overflow: hidden;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.company-text p {
+    font-size: inherit;
+    line-height: 1.0;
+    margin: 0;
+}
+.title-area {
+    padding-top: 10px;
+}
+
+.site-title {
+    margin-bottom: 0;
+}
+
+.site-title a, .site-title a:hover {
+    padding-top: 0;
+}
+
+a img {
+    margin-bottom: 0;
+}
+
+.site-title a img {
+    vertical-align: top;
+}
+/*p {
+    margin-bottom: 1.3em;
+    margin-top: 0;
+}
+
+.btn::after {
+    background: rgba(0, 0, 0, 0) url("images/8.png") no-repeat scroll 0 0;
+    bottom: 0;
+    content: " ";
+    display: block;
+    height: 11px;
+    margin: auto;
+    position: absolute;
+    right: 41px;
+    top: 0;
+    width: 15px;
+}
+
+.btn-wrap .btn {
+    margin-top: 0;
+}
+
+.btn--sm {
+    padding: 13px 65px 13px 40px;
+}
+
+.btn {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ee3a43;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px 2px 4px;
+    color: #ee3a43;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "montserratlight",Helvetica,Arial,sans-serif;
+    font-size: 0.8125rem;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 0;
+    margin-top: 1em;
+    outline: medium none;
+    padding: 13px 65px 13px 40px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 0.3s ease-out 0s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+}
+
+a {
+    color: #f1424a;
+    outline: medium none;
+    text-decoration: none;
+}*/
+
+.site-description {
+    text-indent: -9999px;
+    height: 0;
+}
+
+/* ## Screen Reader Text
+--------------------------------------------- */
+
+.screen-reader-text,
+.screen-reader-text span {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.screen-reader-text:focus {
+    clip: auto !important;
+    height: auto;
+    width: auto;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 15px 23px 14px;
+    color: #333;
+    background: #fff;
+    z-index: 100000; /* Above WP toolbar. */
+    text-decoration: none;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+}

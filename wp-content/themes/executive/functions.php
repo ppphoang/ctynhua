@@ -130,7 +130,7 @@ function executive_comment_callback( $comment, $args, $depth ) {
 
 add_filter('genesis_footer_creds_text', 'footer_creds_filter');
 function footer_creds_filter( $creds ) {
-	$creds = 'Powered by <a href="http://visaonho.com/" title="Powered by wordpress">Wordpress</a>';
+	$creds = 'Powered by <a href="http://dieter-king.tk/" title="Powered by wordpress">Wordpress</a>';
 	return $creds;
 }
 
@@ -155,7 +155,43 @@ function executive_portfolio_post_type() {
 }
 //require_once( get_stylesheet_directory_uri() . '/product-post-type.php');
 
+// Register Custom Taxonomy
+function product_catalog_taxonomy() {
 
+    $labels = array(
+        'name'                       => _x( 'Catalogs', 'Taxonomy General Name', 'executive' ),
+        'singular_name'              => _x( 'Catalog', 'Taxonomy Singular Name', 'executive' ),
+        'menu_name'                  => __( 'Catalog', 'executive' ),
+        'all_items'                  => __( 'All Catalogs', 'executive' ),
+        'parent_item'                => __( 'Parent Catalog', 'executive' ),
+        'parent_item_colon'          => __( 'Parent Catalog:', 'executive' ),
+        'new_item_name'              => __( 'Catalog mới', 'executive' ),
+        'add_new_item'               => __( 'Thêm Catalog mới', 'executive' ),
+        'edit_item'                  => __( 'Sửa Catalog', 'executive' ),
+        'update_item'                => __( 'Cập nhật Catalog', 'executive' ),
+        'view_item'                  => __( 'Xem Catalog', 'executive' ),
+        'separate_items_with_commas' => __( 'Separate publishers with commas', 'executive' ),
+        'add_or_remove_items'        => __( 'Thêm hoặc xóa Catalog', 'executive' ),
+        'choose_from_most_used'      => __( 'Choose from the most used publishers', 'executive' ),
+        'popular_items'              => __( 'Catalog phổ biến', 'executive' ),
+        'search_items'               => __( 'Tìm Catalog', 'executive' ),
+        'not_found'                  => __( 'Không tìm thấy', 'executive' ),
+        'items_list'                 => __( 'Danh sách Catalog', 'executive' ),
+        'items_list_navigation'      => __( 'Catalog list navigation', 'executive' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'catalog', array( 'post' ), $args );
+
+}
+add_action( 'init', 'product_catalog_taxonomy', 0 );
 // Register Custom Post Type
 function product_post_type() {
 
@@ -184,7 +220,7 @@ function product_post_type() {
         'description'           => __( 'Sản phẩm nhựa', 'executive' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'editor', 'thumbnail', ),
-        'taxonomies'            => array( 'category', 'post_tag' ),
+        'taxonomies'            => array( 'catalog' ),
         'hierarchical'          => true,
         'public'                => true,
         'show_ui'               => true,
@@ -199,6 +235,9 @@ function product_post_type() {
         'capability_type'       => 'page',
         'rewrite' => array( 'slug' => 'product' ),
     );
+    //array("hierarchical" =&gt; true, "label" =&gt; "Skills", "singular_label" =&gt; "Skill", "rewrite" =&gt; true)
+    register_taxonomy("Catalog", array("product"));
+
     //register_post_type( 'product_post_type', $args );
     register_post_type( 'product', $args );
 }
@@ -215,7 +254,7 @@ function executive_portfolio_items( $query ) {
 }
 
 /** Add support for 3-column footer widgets */
-add_theme_support( 'genesis-footer-widgets', 3 );
+/*add_theme_support( 'genesis-footer-widgets', 3 );*/
 
 /** Register widget areas **/
 genesis_register_sidebar( array(
@@ -223,6 +262,27 @@ genesis_register_sidebar( array(
 	'name'			=> __( 'Home - Slider', 'executive' ),
 	'description'	=> __( 'This is the slider section on the home page.', 'executive' ),
 ) );
+/** Add custom sidebar */
+genesis_register_sidebar(array(
+    'name'=>__('About Company sidebar','executive'),
+    'id' => 'sidebar-about',
+    'description' => __('This is an about sidebar','executive'),
+/*    'before_widget' => '<div id="%1$s"><div class="widget %2$s">',
+    'after_widget'  => "</div></div>\n",
+    'before_title'  => '<h4><span>',
+    'after_title'   => "</span></h4>\n"*/
+));
+/** Add the company text section */
+//add_action( 'genesis_before_content_sidebar_wrap', 'custom_company_text' );
+//add_action('genesis_before_content_sidebar_wrap','custom_company_text');
+/*function custom_company_text(){
+    if(!is_home())
+        return;
+    genesis_widget_area('company-text', array(
+        'before' => '<div class="company-text widget-area">'
+    ));
+}*/
+
 genesis_register_sidebar( array(
 	'id'			=> 'home-top',
 	'name'			=> __( 'Home - Top', 'executive' ),
@@ -238,3 +298,41 @@ genesis_register_sidebar( array(
 	'name'			=> __( 'Home - Middle', 'executive' ),
 	'description'	=> __( 'This is the middle section of the home page.', 'executive' ),
 ) );
+
+// Read more button
+/*     function executive_read_more(){
+       return '<a class="btn btn--sm" target="_blank" href="'.get_permalink() .'"></a>';
+    }
+add_filter('excerpt_more', 'executive_read_more');*/
+
+/**********************************
+ *
+ * Replace Header Site Title with Inline Logo
+ *
+ * @author AlphaBlossom / Tony Eppright
+ * @link http://www.alphablossom.com/a-better-wordpress-genesis-responsive-logo-header/
+ *
+ * @edited by Sridhar Katakam
+ * @link https://sridharkatakam.com/use-inline-logo-instead-background-image-genesis/
+ *
+ ************************************/
+add_filter( 'genesis_seo_title', 'custom_header_inline_logo', 10, 3 );
+function custom_header_inline_logo( $title, $inside, $wrap ) {
+
+    $logo = '<img src="' . get_stylesheet_directory_uri() . '/images/logo.png" alt="' . esc_attr( get_bloginfo( 'name' ) ) . ' Homepage" width="200" height="100" />';
+
+    $inside = sprintf( '<a href="%s">%s<span class="screen-reader-text">%s</span></a>', trailingslashit( home_url() ), $logo, get_bloginfo( 'name' ) );
+   //echo genesis_get_seo_option( 'home_h1_on' );
+
+    // Determine which wrapping tags to use
+    //$wrap = genesis_is_root_page() && 'title' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'p';
+    $wrap = 'h1';//return;
+    // A little fallback, in case an SEO plugin is active
+    //$wrap = genesis_is_root_page() && ! genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : $wrap;
+
+    // And finally, $wrap in h1 if HTML5 & semantic headings enabled
+    $wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h1' : $wrap;
+
+    return sprintf( '<%1$s %2$s>%3$s</%1$s>', $wrap, genesis_attr( 'site-title' ), $inside );
+
+}
