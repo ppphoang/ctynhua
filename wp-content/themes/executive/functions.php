@@ -134,26 +134,71 @@ function footer_creds_filter( $creds ) {
 	return $creds;
 }
 
-/** Create portfolio custom post type */
+/** Create portfolio/danh mục đầu tư custom post type */
 add_action( 'init', 'executive_portfolio_post_type' );
 function executive_portfolio_post_type() {
 	register_post_type( 'portfolio',
 		array(
 			'labels' => array(
-				'name' => __( 'Portfolio', 'executive' ),
-				'singular_name' => __( 'Portfolio', 'executive' ),
+				'name' => __( 'Danh mục đầu tư', 'executive' ),
+				'singular_name' => __( 'Danh mục đầu tư', 'executive' ),
 			),
 			'exclude_from_search' => true,
 			'has_archive' => true,
 			'hierarchical' => true,
 			'menu_icon' => get_stylesheet_directory_uri() . '/images/icons/portfolio.png',
 			'public' => true,
-			'rewrite' => array( 'slug' => 'portfolio' ),
+			'rewrite' => array( 'slug' => 'danh-muc-dau-tu' ),
 			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes', 'genesis-seo' ),
 		)
 	);
 }
-//require_once( get_stylesheet_directory_uri() . '/product-post-type.php');
+
+// Register Custom Post Type
+function product_post_type() {
+
+    $labels = array(
+        'name'                  => _x( 'Products', 'Post Type General Name', 'executive' ),
+        'singular_name'         => _x( 'Product', 'Post Type Singular Name', 'executive' ),
+        'menu_name'             => __( 'Sản phẩm', 'executive' ),
+        'name_admin_bar'        => __( 'Sản phẩm', 'executive' ),
+        'parent_item_colon'     => __( 'Sản phẩm cha:', 'executive' ),
+        'all_items'             => __( 'Tất cả các sản phẩm', 'executive' ),
+        'add_new_item'          => __( 'Thêm mới sản phẩm', 'executive' ),
+        'add_new'               => __( 'Thêm sản phẩm', 'executive' ),
+        'new_item'              => __( 'Sản phẩm mới', 'executive' ),
+        'edit_item'             => __( 'Sửa sản phẩm', 'executive' ),
+        'update_item'           => __( 'Cập nhật sản phẩm', 'executive' ),
+        'view_item'             => __( 'Xem sản phẩm', 'executive' ),
+        'search_items'          => __( 'Tìm kiếm sản phẩm', 'executive' ),
+        'not_found'             => __( 'Không tìm thấy', 'executive' ),
+        'not_found_in_trash'    => __( 'Không thấy trong thùng rác', 'executive' ),
+        'items_list'            => __( 'Danh sách sản phẩm', 'executive' ),
+        'items_list_navigation' => __( 'Chuyển hướng danh mục sản phẩm', 'executive' ),
+        'filter_items_list'     => __( 'Lọc danh sách sản phẩm', 'executive' ),
+    );
+    $args = array(
+        'label'                 => __( 'Product', 'executive' ),
+        'description'           => __( 'Sản phẩm nhựa', 'executive' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', ),
+        'hierarchical'          => true,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+        'rewrite' => array( 'slug' => 'product' ),
+    );
+    register_post_type( 'product', $args );
+}
+add_action( 'init', 'product_post_type' );
 
 // Register Custom Taxonomy
 function product_catalog_taxonomy() {
@@ -187,61 +232,12 @@ function product_catalog_taxonomy() {
         'show_admin_column'          => true,
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
+        'rewrite'           => array( 'slug' => 'catalog' ),
+        'query_var'         => true,
     );
-    register_taxonomy( 'catalog', array( 'post' ), $args );
-
+    register_taxonomy( 'catalog', array( 'product' ), $args );
 }
-add_action( 'init', 'product_catalog_taxonomy', 0 );
-// Register Custom Post Type
-function product_post_type() {
-
-    $labels = array(
-        'name'                  => _x( 'Products', 'Post Type General Name', 'executive' ),
-        'singular_name'         => _x( 'Product', 'Post Type Singular Name', 'executive' ),
-        'menu_name'             => __( 'Sản phẩm', 'executive' ),
-        'name_admin_bar'        => __( 'Sản phẩm', 'executive' ),
-        'parent_item_colon'     => __( 'Sản phẩm cha:', 'executive' ),
-        'all_items'             => __( 'Tất cả các sản phẩm', 'executive' ),
-        'add_new_item'          => __( 'Thêm mới sản phẩm', 'executive' ),
-        'add_new'               => __( 'Thêm sản phẩm', 'executive' ),
-        'new_item'              => __( 'Sản phẩm mới', 'executive' ),
-        'edit_item'             => __( 'Sửa sản phẩm', 'executive' ),
-        'update_item'           => __( 'Cập nhật sản phẩm', 'executive' ),
-        'view_item'             => __( 'Xem sản phẩm', 'executive' ),
-        'search_items'          => __( 'Tìm kiếm sản phẩm', 'executive' ),
-        'not_found'             => __( 'Không tìm thấy', 'executive' ),
-        'not_found_in_trash'    => __( 'Không thấy trong thùng rác', 'executive' ),
-        'items_list'            => __( 'Danh sách sản phẩm', 'executive' ),
-        'items_list_navigation' => __( 'Chuyển hướng danh mục sản phẩm', 'executive' ),
-        'filter_items_list'     => __( 'Lọc danh sách sản phẩm', 'executive' ),
-    );
-    $args = array(
-        'label'                 => __( 'Product', 'executive' ),
-        'description'           => __( 'Sản phẩm nhựa', 'executive' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail', ),
-        'taxonomies'            => array( 'catalog' ),
-        'hierarchical'          => true,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => true,
-        'menu_position'         => 5,
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => true,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'page',
-        'rewrite' => array( 'slug' => 'product' ),
-    );
-    //array("hierarchical" =&gt; true, "label" =&gt; "Skills", "singular_label" =&gt; "Skill", "rewrite" =&gt; true)
-    register_taxonomy("Catalog", array("product"));
-
-    //register_post_type( 'product_post_type', $args );
-    register_post_type( 'product', $args );
-}
-add_action( 'init', 'product_post_type' );
+add_action( 'init', 'product_catalog_taxonomy' );
 
 /** Change the number of portfolio items to be displayed (props Bill Erickson) */
 add_action( 'pre_get_posts', 'executive_portfolio_items' );
@@ -298,9 +294,16 @@ genesis_register_sidebar( array(
 	'name'			=> __( 'Home - Middle', 'executive' ),
 	'description'	=> __( 'This is the middle section of the home page.', 'executive' ),
 ) );
+unregister_sidebar('home-cta');
+unregister_sidebar('home-top');
+unregister_sidebar('home-middle');
 
 // Read more button
-/*     function executive_read_more(){
+/*function sp_read_more_link(){
+    return '... <br/><a class="more-link" href="'. the_permalink().'">[Continue Reading]</a>';
+}*/
+//add_filter('get_the_content_more_link','sp_read_more_link');
+/* function executive_read_more(){
        return '<a class="btn btn--sm" target="_blank" href="'.get_permalink() .'"></a>';
     }
 add_filter('excerpt_more', 'executive_read_more');*/
@@ -336,3 +339,4 @@ function custom_header_inline_logo( $title, $inside, $wrap ) {
     return sprintf( '<%1$s %2$s>%3$s</%1$s>', $wrap, genesis_attr( 'site-title' ), $inside );
 
 }
+

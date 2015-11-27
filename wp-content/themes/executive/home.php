@@ -50,17 +50,17 @@ function executive_home_sections() {
             'before'    => '<div class="home-about widget-area">',
         ));
 
-		genesis_widget_area( 'home-top', array(
+		/*genesis_widget_area( 'home-top', array(
 			'before' => '<div class="home-top widget-area">',
-		) );
+		) );*/
 
-		genesis_widget_area( 'home-cta', array(
+		/*genesis_widget_area( 'home-cta', array(
 			'before' => '<div class="home-cta widget-area">',
-		) );
+		) );*/
 
-		genesis_widget_area( 'home-middle', array(
+	/*	genesis_widget_area( 'home-middle', array(
 			'before' => '<div class="home-middle widget-area">',
-		) );
+		) );*/
 		   
 	}
 

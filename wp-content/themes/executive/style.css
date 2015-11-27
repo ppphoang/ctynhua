@@ -596,10 +596,14 @@ ul.menu li.sfHover ul,
 ------------------------------------------------------------ */
 
 .breadcrumb {
-	color: #777;
-	font-size: 12px;
-	margin: -30px -60px 30px;
-	padding: 20px;
+    color: #777;
+    font-size: 15px;
+    font-weight: normal;
+    margin: -30px -60px 30px;
+    padding: 10px;
+	/*font-size: 12px;*/
+	/*margin: -30px -60px 30px;*/
+	/*padding: 20px;*/
 }
 
 
@@ -769,7 +773,8 @@ h2,
 h2 a,
 h2 a:visited {
 	clear: both;
-	font-size: 42px;
+	/*font-size: 42px;*/
+    font-size: 24px;
 	margin: 0 0 20px;
 }
 
@@ -894,7 +899,7 @@ h6,
 
 .post-info .author,
 .post-info .date {
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 
 
@@ -2024,7 +2029,7 @@ div.gform_wrapper .gform_footer {
 	}
 
 	.full-width-content #content {
-		width: 840px;
+		width: 880px;
 	}
 
 	.post-type-archive-portfolio.full-width-content #content {
@@ -2293,9 +2298,9 @@ input, select, textarea {
     color: #222;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
-    padding: 16px;
+    padding: 10px;
     /*width: 100%;*/
-    margin-bottom: 16px;
+    /*margin-bottom: 16px;*/
 }/*
 button, input {
     line-height: normal;
