@@ -194,11 +194,14 @@ ul {
 
 blockquote,
 blockquote::before {
-	color: #999;
+	/*color: #999;*/
+    padding: 15px;
 }
 
 blockquote {
-	margin: 40px 40px 24px;
+	/*margin: 40px 40px 24px;*/
+    margin: 10px;
+    background-color: #f7f7f7;;
 }
 
 blockquote::before {
@@ -1451,3 +1454,31 @@ p.code-meta {
     overflow: hidden; 
     padding: 0;
 }
+
+h3 .hsl, h4 .hsl {
+    background: rgba(0, 0, 0, 0) url("images/link.png") no-repeat scroll 0 0 / contain ;
+    height: 1.2em;
+    margin-left: 0.125em;
+    opacity: 0.25;
+    transition: opacity 0.3s ease 0s;
+    width: 1.2em;
+    display: inline-block;
+}
+h3 .hsl:focus, h3 .hsl:hover, h4 .hsl:focus, h4 .hsl:hover {
+    opacity: 0.85;
+}
+h3 .hsl:active, h4 .hsl:active {
+    background-color: #e95c33;
+}
+h4 .hsl {
+    height: 1.2em;
+    width: 1.25em;
+}
+.sr.hsl {
+    text-indent: -200%;
+}
+
+h3 a, h4 a {
+    display: inline-block;
+}
+
