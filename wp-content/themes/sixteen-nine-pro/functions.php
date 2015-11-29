@@ -107,7 +107,7 @@ add_action( 'genesis_header', 'sixteen_nine_site_gravatar', 5 );
 function sixteen_nine_site_gravatar() {
 
 	$header_image = get_header_image() ? '<img alt="" src="' . get_header_image() . '" />' : get_avatar( get_option( 'admin_email' ), 224 );
-	
+
 	printf( '<div class="site-avatar"><a href="%s">%s</a></div>', home_url( '/' ), $header_image );
 
 }
@@ -145,7 +145,7 @@ function sixteen_nine_comments_gravatar( $args ) {
 //* Remove comment form allowed tags
 add_filter( 'comment_form_defaults', 'sixteen_nine_remove_comment_form_allowed_tags' );
 function sixteen_nine_remove_comment_form_allowed_tags( $defaults ) {
-	
+
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 
@@ -187,6 +187,7 @@ function hiengreet($greet){
     return $greet;
 }
 add_filter('hoangphanhome','hiengreet');
+
 add_action( 'wp_head', 'wpse_43672_wp_head' );
 function wpse_43672_wp_head(){
     ?>
@@ -194,4 +195,101 @@ function wpse_43672_wp_head(){
 <?php
 }
 
+/** WPT related post widget  */
+ /*function related_posts_categories(){
 
+     if ( is_single() ) {
+         global $post;
+         $count = 0;
+         $postIDs = array( $post->ID );
+         $related = '';
+         $cats = wp_get_post_categories( $post->ID );
+         $catIDs = array();
+         foreach ($cats as $cat) {
+             $catIDs[] = $cat;
+         }
+         $args = array(
+             'category__in' => $catIDs,
+             'post__not_in' => $postIDs,
+             'showposts' => 4,
+             'ignore_sticky_post' => 0,
+             'orderby' => 'rand',
+             'tax_query' => array(
+                 array(
+                     'taxonomy' => 'post_format',
+                     'field' => 'slug',
+                     'terms' => array(
+                         'post-format-link',
+                         'post-format-status',
+                         'post-format-aside',
+                         'post-format-quote'
+                     ),
+                     'operator' => 'NOT IN'
+                 )
+             ),
+         );
+         $cat_query = new WP_Query( $args );
+         if( $cat_query->have_posts() ) {
+             while ($cat_query->have_posts()){
+                 $cat_query->the_post();
+                 $related .= '<li><a href="'.get_permalink().'" rel="bookmark" title="Permanent Link to"' . get_the_title() . '">' . get_the_title() . '</a></li>';
+             }
+         }
+
+         if( $related ){
+             printf('<div><h3>You may like:</h3><ul>%s</ul></div>', $related);
+         }
+         wp_reset_query();
+     }
+ }
+add_action('genesis_after_post_content', 'related_posts_categories');*/
+
+/** WPT related post widget */
+function related_posts_categories()
+{
+    if (is_single()) {
+        global $post;
+        $count = 0;
+        $postIDs = array($post->ID);
+        $related = '';
+        $cats = wp_get_post_categories($post->ID);
+        $catIDs = array();
+        {
+            foreach ($cats as $cat) {
+                $catIDs[] = $cat;
+            }
+            $args = array(
+                'category__in' => $catIDs,
+                'post__not_in' => $postIDs,
+                'showposts' => 4,
+                'ignore_sticky_posts' => 0,
+                'orderby' => 'rand',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'post_format',
+                        'field' => 'slug',
+                        'terms' => array(
+                            'post-format-link',
+                            'post-format-status',
+                            'post-format-aside',
+                            'post-format-quote'),
+                        'operator' => 'NOT IN'
+                    )
+                )
+            );
+            $cat_query = new WP_Query($args);
+            if ($cat_query->have_posts()) {
+                while ($cat_query->have_posts()) {
+                    $cat_query->the_post();
+                    $related .= '<li><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '">' . get_the_title() . '</a></li>';
+                }
+            }
+        }
+        if ($related) {
+            printf('<div><h3>You may like:</h3><ul>%s</ul></div>', $related);
+        }
+        wp_reset_query();
+    }
+}
+
+add_action('genesis_after_entry_content', 'related_posts_categories');

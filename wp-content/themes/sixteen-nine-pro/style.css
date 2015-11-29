@@ -693,6 +693,7 @@ img.alignright,
     font-size: 30px;
 	line-height: 1.2;
 	text-align: center;
+    text-transform: uppercase;
 }
 
 .entry-title a {
@@ -1482,3 +1483,13 @@ h3 a, h4 a {
     display: inline-block;
 }
 
+
+h3:target, h4:target, h5:target {
+    border-bottom: 0.25em solid #e95c33;
+    color: #e95c33;
+    margin-bottom: 0.5em;
+}
+
+h3, h4 {
+    padding: 1.5em 0 0.2em;
+}
