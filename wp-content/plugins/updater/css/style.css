@@ -1,0 +1,53 @@
+/*
+Plugin Name: Updater
+Plugin URI: http://bestwebsoft.com/plugin/
+Description: This plugin allows you to update plugins and WP core in auto or manual mode.
+Author: BestWebSoft
+Version: 1.18
+Author URI: http://bestwebsoft.com/
+License: GPLv2 or later
+*/
+/*
+* styles for settings page
+*/
+.pdtr {
+	width: auto !important;
+}
+.pdtr * {
+	width: auto !important;
+}
+.pdtr td,
+.pdtr td {
+	border-bottom-color: #DFDFDF;
+    border-top-color: #FFFFFF;
+}
+.pdtr .plugin-title {
+    border-right: 1px solid #DFDFDF !important;
+    padding-right: 15px !important;
+    padding-top: 7px !important;
+}
+.pdtr thead tr th {
+	padding: 8px 8px 7px 0 !important;
+}
+.pdtr .check-column {
+	padding: 7px 8px 7px 8px !important;
+}
+.pdtr_right {
+	float: right;
+}
+.pdtr_right input {
+    position: relative;
+    top: -1px;
+}
+.pdtr_left {
+	float: left;
+	padding-right: 15px;
+}
+.pdtr_settings input[type="text"],
+.pdtr_settings input[type="email"] {
+	width: 300px;
+}
+.pdtr_img {
+	margin-bottom: -3px;
+	opacity: 0.6;
+}
